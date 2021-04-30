@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Consulta marcada!</h1>
+<h5>Sua consulta foi marcada com sucesso. Confira a data e o horário escolhido. Nos vemos em breve!</h5>
+<p>Seu nome: {{ form.Nome.value }}</p>
+<p>Seu sobrenome: {{ form.Sobrenome.value }}</p>
+<p>Email: {{ form.Email.value }}</p>
+<p>Data escolhida: {{ form.Data.value }}</p>
+<p>Hora escolhida: {{ form.Hora.value }}</p>
+
+
+{% endblock %}

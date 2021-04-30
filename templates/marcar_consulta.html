@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<header class="w3-container w3-2021-french-blue w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">Thais Lino Psicologia</h1>
+    <p class="w3-xlarge">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
+    </p>
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Marcar consulta</button>
+</header>
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-twothird">
+            <header class="w3-container w3-light-gray">
+                <h1>Escolha o dia e horário</h1>
+            </header>
+            <form action="{% url 'marcar_consulta' %}" method="post" class="w3-container">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+
+                <div class="form-group">
+                    <label for="{{ field.id_for_label}}">{{ field.label }}</label>
+                    {{ field|add_class:'form-control' }}
+                </div>
+                {% endfor %}
+                <input type="submit" value="Agendar" class="w3-button w3-blue">
+            </form>
+            </section>
+        </div>
+        <div class="w3-card-3 w3-third w3-container">
+
+            <header class="w3-container w3-light-gray">
+                <h1>Atendimento</h1>
+            </header>
+        
+            <div class="w3-container">
+                <p>Segunda a sexta-feira: 19h00 às 22h00.
+                    Sábados: 7h00 às 12h00.
+                    </p>
+            </div>
+            <header class="w3-container w3-light-gray">
+                <h1>Funcionamento</h1>
+            </header>
+        
+            <div class="w3-container">
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+            </div>
+            <header class="w3-container w3-light-gray">
+                <h1>Confirmação</h1>
+            </header>
+        
+            <div class="w3-container">
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
